@@ -30,17 +30,14 @@ const heroVideos = [
 
 // Showcase section video URLs (full versions)
 const showcaseVideos = [
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/9x16%20(1)_720p.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Voxpop-Poolside-9_16%20(1)_720p.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/9x16_720p.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Australia-9_16_720p.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/LinkedIn%209x16_720p.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Voxpop-Beachside-9_16%20(1)_720p.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/MM%20Outskill%20talking%20head%20_Vertical_720p.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Nomad-Podcast-9-16%20(1)_720p.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Script%2003%20(9_16)%20-%20B2B_720p.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/StreetStyle-Nomad-9-16%20(2)_720p.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Video%204%20new_720p.mp4",
+  "https://player.vimeo.com/video/1148660389?api=1&controls=0&title=0&byline=0&portrait=0",
+  "https://player.vimeo.com/video/1148660918?api=1&controls=0&title=0&byline=0&portrait=0",
+  "https://player.vimeo.com/video/1148660430?api=1&controls=0&title=0&byline=0&portrait=0",
+  "https://player.vimeo.com/video/1148660491?api=1&controls=0&title=0&byline=0&portrait=0",
+  "https://player.vimeo.com/video/1148660564?api=1&controls=0&title=0&byline=0&portrait=0",
+  "https://player.vimeo.com/video/1148660874?api=1&controls=0&title=0&byline=0&portrait=0",
+  "https://player.vimeo.com/video/1148660610?api=1&controls=0&title=0&byline=0&portrait=0",
+  "https://player.vimeo.com/video/1148660642?api=1&controls=0&title=0&byline=0&portrait=0",
 ];
 
 

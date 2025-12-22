@@ -13,24 +13,42 @@ export default function VideoCard({
 }: VideoCardProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+
+  // Check if source is a Vimeo URL
+  const isVimeo = videoSrc.includes('vimeo.com');
 
   const handlePlayClick = () => {
     if (!isLoaded) {
       setIsLoaded(true);
     }
 
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-        setIsPlaying(false);
-      } else {
-        videoRef.current.play().then(() => {
+    if (isVimeo) {
+      // Vimeo Player API via postMessage
+      if (iframeRef.current && iframeRef.current.contentWindow) {
+        if (isPlaying) {
+          iframeRef.current.contentWindow.postMessage('{"method":"pause"}', '*');
+          setIsPlaying(false);
+        } else {
+          iframeRef.current.contentWindow.postMessage('{"method":"play"}', '*');
           setIsPlaying(true);
-        }).catch(() => {
-          // Play may be blocked by browser
-        });
+        }
+      }
+    } else {
+      // Standard HTML5 Video
+      if (videoRef.current) {
+        if (isPlaying) {
+          videoRef.current.pause();
+          setIsPlaying(false);
+        } else {
+          videoRef.current.play().then(() => {
+            setIsPlaying(true);
+          }).catch(() => {
+            // Play may be blocked by browser
+          });
+        }
       }
     }
   };
@@ -47,15 +65,26 @@ export default function VideoCard({
         }`}
     >
       {/* Video Background */}
-      <video
-        ref={videoRef}
-        src={videoSrc}
-        loop
-        playsInline
-        preload="metadata"
-        onEnded={handleVideoEnded}
-        className="object-cover w-full h-full"
-      />
+      {isVimeo ? (
+        <iframe
+          ref={iframeRef}
+          src={videoSrc}
+          className="absolute inset-0 w-full h-full object-cover"
+          allow="autoplay; fullscreen; picture-in-picture"
+          frameBorder="0"
+          title="Vimeo Video"
+        />
+      ) : (
+        <video
+          ref={videoRef}
+          src={videoSrc}
+          loop
+          playsInline
+          preload="metadata"
+          onEnded={handleVideoEnded}
+          className="object-cover w-full h-full"
+        />
+      )}
 
       {/* Gradient Overlay - hidden when playing */}
       {!isPlaying && (
