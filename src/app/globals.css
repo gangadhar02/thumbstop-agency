@@ -3,24 +3,580 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Provided Variables */
+  --radius--large: 100vw;
+  /* Approximating 'large' as pill based on screenshot */
+  --body--font: "Space Grotesk", sans-serif;
+  /* Mapping to our font */
+  --colors-global--text-color_main: black;
+  --size-md: 16px;
+  --header-height: 56px;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Dimensions for Navbar */
+  --navbar-height: 4.5rem;
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
+  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes scroll-up {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scroll-down {
+  from {
+    transform: translateY(-50%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-scroll-up {
+  animation: scroll-up 30s linear infinite;
+}
+
+.animate-scroll-down {
+  animation: scroll-down 30s linear infinite;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 20s linear infinite;
+}
+
+/* Ultra Gradient Shapes */
+.shape-1 {
+  position: absolute;
+  background-color: rgba(255, 210, 119, 0.38);
+  border-radius: 11988px;
+  width: 480px;
+  height: 480px;
+  top: -296.4px;
+  left: 0px;
+}
+
+.shape-2 {
+  position: absolute;
+  background-color: rgba(106, 251, 192, 0.65);
+  border-radius: 11988px;
+  width: 480px;
+  height: 516px;
+  top: -240px;
+  left: -328.8px;
+}
+
+.shape-3 {
+  position: absolute;
+  background-color: rgba(255, 9, 184, 0.14);
+  border-radius: 11988px;
+  width: 480px;
+  height: 480px;
+  /* Approximate position/size based on transform context or defaulting to center-ish if transform is relative */
+  /* The transform was complex matrix, simplifying for static layout or using raw if needed. 
+     Using a default position to ensure visibility if matrix fails without context. */
+  top: 10%;
+  right: 10%;
+  transform: rotate(92deg);
+}
+
+.shape-4 {
+  position: absolute;
+  background-color: rgba(246, 199, 121, 0.62);
+  width: 400px;
+  height: 400px;
+  top: 20%;
+  left: 30%;
+  border-radius: 100%;
+}
+
+.shape-5 {
+  position: absolute;
+  background-color: rgba(106, 251, 192, 0.58);
+  width: 360px;
+  height: 360px;
+  top: -260.4px;
+  left: 0px;
+  border-radius: 100%;
+}
+
+.shape-6 {
+  position: absolute;
+  background-color: rgba(106, 251, 192, 0.33);
+  width: 500px;
+  height: 500px;
+  bottom: 10%;
+  right: 20%;
+  border-radius: 100%;
+}
+
+.shape-7 {
+  position: absolute;
+  background-color: rgba(255, 210, 119, 0.28);
+  width: 450px;
+  height: 450px;
+  top: 40%;
+  right: 0;
+  border-radius: 100%;
+}
+
+.shape-8 {
+  position: absolute;
+  background-color: rgba(255, 9, 184, 0.14);
+  width: 300px;
+  height: 300px;
+  bottom: 0;
+  left: 20%;
+  border-radius: 100%;
+}
+
+.shape-9 {
+  position: absolute;
+  background-color: rgba(106, 251, 192, 0.56);
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
+}
+
+.btn-mint {
+  padding: 1rem 3rem;
+  border-radius: 9999px;
+  font-weight: 800;
+  font-size: 1rem;
+  background-color: #3EFFC1;
+  color: black;
+  border: 2px solid black;
+  box-shadow: 4px 4px 0px 0px #000000;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.btn-mint:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 6px 6px 0px 0px #000000;
+}
+
+.btn-mint:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px 0px #000000;
+}
+
+/* ============================================
+   =============== GLOBAL STYLES ==============
+   ============================================ */
+
+/* Make text look crisper and more legible in all browsers */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Focus state style for keyboard navigation for the focusable elements */
+*[tabindex]:focus-visible,
+input[type="file"]:focus-visible {
+  outline: 0.125rem solid #4d65ff;
+  outline-offset: 0.125rem;
+}
+
+/* Get rid of top margin on first element in any rich text element */
+.w-richtext> :not(div):first-child,
+.w-richtext>div:first-child> :first-child {
+  margin-top: 0 !important;
+}
+
+/* Get rid of bottom margin on last element in any rich text element */
+.w-richtext>:last-child,
+.w-richtext ol li:last-child,
+.w-richtext ul li:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Prevent all click and hover interaction with an element */
+.pointer-events-off {
+  pointer-events: none;
+}
+
+/* Enables all click and hover interaction with an element */
+.pointer-events-on {
+  pointer-events: auto;
+}
+
+/* Create a class of .div-square which maintains a 1:1 dimension of a div */
+.div-square::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+/* Make sure containers never lose their center alignment */
+.container-medium,
+.container-small,
+.container-large {
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+/* Apply "..." after 3 lines of text */
+.text-style-3lines {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* Apply "..." after 2 lines of text */
+.text-style-2lines {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Adds inline flex display */
+.display-inlineflex {
+  display: inline-flex;
+}
+
+/* These classes are never overwritten */
+.hide {
+  display: none !important;
+}
+
+@media screen and (max-width: 991px) {
+
+  .hide,
+  .hide-tablet {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hide-mobile-landscape {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+.margin-0 {
+  margin: 0rem !important;
+}
+
+.padding-0 {
+  padding: 0rem !important;
+}
+
+.spacing-clean {
+  padding: 0rem !important;
+  margin: 0rem !important;
+}
+
+.margin-top {
+  margin-right: 0rem !important;
+  margin-bottom: 0rem !important;
+  margin-left: 0rem !important;
+}
+
+.padding-top {
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+
+.margin-right {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+  margin-left: 0rem !important;
+}
+
+.padding-right {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+
+.margin-bottom {
+  margin-top: 0rem !important;
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+}
+
+.padding-bottom {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+
+.margin-left {
+  margin-top: 0rem !important;
+  margin-right: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+
+.padding-left {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+
+.margin-horizontal {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+
+.padding-horizontal {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+
+.margin-vertical {
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+}
+
+.padding-vertical {
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+
+a {
+  color: inherit;
+}
+
+.wf-design-mode .slider-vimeo-video-wrapper {
+  width: 12rem;
+}
+
+.wf-design-mode .section_slider-std.is-carousel-home .slider-std_list {
+  flex-wrap: wrap;
+}
+
+.swiper_bullet,
+.swiper_bullet-active {
+  position: relative;
+  /* Ensure positioning context for pseudo-element */
+}
+
+.swiper_bullet::before,
+.swiper_bullet-active::before {
+  content: "";
+  /* Required for pseudo-elements */
+  position: absolute;
+  top: 50%;
+  /* Position it in the center */
+  left: 0;
+  width: 100%;
+  height: 0.625rem;
+  background-color: currentColor;
+  /* Uses text color of .swiper_bullet */
+  transform: translateY(-50%);
+  /* Center it exactly */
+  border-radius: 50vw;
+}
+
+.videos-p_list-wrapper.is-fade {
+  /* for WebKit (Safari, older Chrome) */
+  -webkit-mask-image: linear-gradient(to bottom,
+      black 80%,
+      transparent 100%);
+  /* standard */
+  mask-image: linear-gradient(to bottom,
+      black 80%,
+      transparent 100%);
+
+  /* ensure the mask covers the full box */
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Base transition for the SVG icons */
+.video-html_play-btn-svg {
+  transition: opacity .12s ease, transform .12s ease;
+  transform: scale(1);
+  will-change: opacity, transform;
+}
+
+/* Pulse class the JS toggles briefly */
+.ui-pulse {
+  transform: scale(0.8);
+}
+
+/* ============================================
+   =============== GENERAL COMPONENTS ==============
+   ============================================ */
+
+.card_list:empty {
+  /* Give the empty element some space */
+  min-height: 30rem !important;
+  position: relative !important;
+}
+
+
+.card_list:empty::before {
+  content: "";
+  /* Fill the parent's space so the outline is visible */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 20px;
+  outline: 3.5px dashed #808080;
+  outline-offset: -3.5px;
+}
+
+/* ===============================================
+   =============== SIDE STEPS  ==============
+   ============================================ */
+.steps_progress-bar-wrapper {
+  /* for WebKit (Safari, older Chrome) */
+  -webkit-mask-image: linear-gradient(to bottom,
+      black 80%,
+      transparent 100%);
+  /* standard */
+  mask-image: linear-gradient(to bottom,
+      black 80%,
+      transparent 100%);
+
+  /* ensure the mask covers the full box */
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* ============================================
+   =============== VIDEO STYLES ==============
+   ============================================ */
+/* Cover */
+.vimeo-player[data-vimeo-update-size="cover"] {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+}
+
+/* Placeholder */
+.vimeo-player[data-vimeo-activated="true"][data-vimeo-loaded="true"] .vimeo-player__placeholder {
+  opacity: 0;
+}
+
+/* Dark (Overlay) */
+.vimeo-player[data-vimeo-playing="false"] .vimeo-player__dark {
+  opacity: 0.4;
+}
+
+.vimeo-player[data-vimeo-activated="false"][data-vimeo-playing="false"] .vimeo-player__dark {
+  opacity: 0.26;
+}
+
+.vimeo-player[data-vimeo-activated="true"][data-vimeo-loaded="true"] .vimeo-player__dark {
+  opacity: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .vimeo-player:hover .vimeo-player__dark {
+    opacity: 0.4 !important;
+  }
+}
+
+/* Pause */
+.vimeo-player .vimeo-player__pause {
+  display: none;
+}
+
+.vimeo-player[data-vimeo-playing="true"] .vimeo-player__pause {
+  display: flex;
+}
+
+.vimeo-player .vimeo-player__pause .vimeo-player__btn {
+  opacity: 0;
+}
+
+.vimeo-player[data-vimeo-activated="true"][data-vimeo-playing="false"] .vimeo-player__pause .vimeo-player__btn,
+.vimeo-player[data-vimeo-activated="true"][data-vimeo-playing="true"]:hover .vimeo-player__pause .vimeo-player__btn {
+  opacity: 1;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .vimeo-player[data-vimeo-activated="true"][data-vimeo-playing="true"] .vimeo-player__pause .vimeo-player__btn {
+    opacity: 0 !important;
+  }
+}
+
+/* Play */
+.vimeo-player[data-vimeo-playing="true"] .vimeo-player__play {
+  opacity: 0;
+}
+
+/* Loading */
+.vimeo-player .vimeo-player__loading {
+  opacity: 0;
+}
+
+.vimeo-player[data-vimeo-playing="true"] .vimeo-player__loading {
+  opacity: 1;
+}
+
+.vimeo-player[data-vimeo-playing="true"][data-vimeo-loaded="true"] .vimeo-player__loading {
+  opacity: 0;
+}
+
+.btn-yellow {
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 1rem;
+  background-color: #FFD277;
+  color: black;
+  border: 2px solid black;
+  box-shadow: 3px 3px 0px 0px #000000;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
+.btn-yellow:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0px 0px #000000;
+}
+
+.btn-yellow:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px 0px #000000;
 }
