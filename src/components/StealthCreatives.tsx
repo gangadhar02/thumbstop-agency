@@ -13,21 +13,15 @@ export default function StealthCreatives() {
                     </div>
 
                     <h2 className="text-3xl lg:text-5xl font-bold mb-8 text-[#E91E8C] whitespace-nowrap" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                        Stealth Creatives
+                        Why Creative Is Essential ?
                     </h2>
 
                     <div className="space-y-6 text-base lg:text-lg text-black font-medium leading-relaxed mb-10">
                         <p>
-                            Stealth creatives are ads that look like content your customers see on social media in 2025.
+                            In 2026, ad creative is your biggest lever on paid social. As costs rise and competition intensifies, high-performance creative is the difference between scaling and stalling your growth.
                         </p>
                         <p>
-                            Think podcast clips, street interviews, and funny skits that look natural.
-                        </p>
-                        <p>
-                            Traditional UGC, like testimonials and scripted reviews, don&apos;t look authentic in most markets.
-                        </p>
-                        <p>
-                            Stealth Creatives &quot;fly under the radar&quot; and make your customer want to buy, without realizing it&apos;s an ad.
+                            Stealth creatives look like the content your customers already watch. Podcast clips, street interviews, funny skits, native formats that feel organic and varied. Exactly what Andromeda loves to spend on.
                         </p>
                     </div>
 

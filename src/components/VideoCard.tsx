@@ -5,11 +5,13 @@ import { useRef, useState } from 'react';
 interface VideoCardProps {
   videoSrc: string;
   aspectRatio?: 'portrait' | 'square';
+  tag?: string;
 }
 
 export default function VideoCard({
   videoSrc,
-  aspectRatio = 'portrait'
+  aspectRatio = 'portrait',
+  tag
 }: VideoCardProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -87,8 +89,16 @@ export default function VideoCard({
       )}
 
       {/* Gradient Overlay - hidden when playing */}
+      {/* Gradient Overlay - hidden when playing */}
       {!isPlaying && (
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+      )}
+
+      {/* Tag Badge */}
+      {tag && (
+        <div className="absolute top-3 left-3 px-3 py-1 bg-black/60 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider rounded-lg z-20 pointer-events-none">
+          {tag}
+        </div>
       )}
 
       {/* Play/Pause Button */}

@@ -33,20 +33,10 @@ const methodSteps = [
                 <path d="M2 8h20" />
             </svg>
         ),
-        title: 'Unique Filmmaking Methodology',
-        description: "Our approach merges art with precision—post script approval, our skilled filmmakers meticulously shape each frame. We're in a constant state of refining, making sure that your ads don't just turn heads but turn the market in your favor."
+        title: 'Real + AI Creative Methodology',
+        description: "We use AI to rapidly test concepts and find what resonates—then double down on winners with full production. This test-first approach cuts your ad production costs by 50-60% while ensuring you only invest in creatives that actually perform."
     },
-    {
-        icon: (
-            <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <path d="M9 9h6v6H9z" />
-                <path d="M9 3v6M15 3v6M9 15v6M15 15v6M3 9h6M3 15h6M15 9h6M15 15h6" />
-            </svg>
-        ),
-        title: 'Direct Response Editing',
-        description: "Understanding your audience is key. The editing that resonates with Boomers aged 40-50 won't have the same effect on the 20-30 Gen Z demographic. We refine our edits to cater buyer personas we create, ensuring creatives that resonate and convert."
-    },
+
     {
         icon: (
             <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -127,8 +117,7 @@ export default function ThumbstopMethod() {
                             Method
                         </h2>
                         <p className="text-lg text-gray-700 mb-10 max-w-md leading-relaxed">
-                            This overview is just the beginning of how we help brands scale through our creatives.
-                            Our method has the perfect mix between past experiences in different markets and constant innovation.
+                            This is a sneak peek at how we help brands scale through our creatives. Our method strikes the perfect balance using AI for speed and volume, while relying on human judgment to shape the creative that actually connects.
                         </p>
                         <button
                             className="px-6 py-3 font-bold text-base uppercase border-2 border-black shadow-[4px_4px_0px_0px_#000000] transition-all hover:-translate-x-px hover:-translate-y-px hover:shadow-[5px_5px_0px_0px_#000000]"

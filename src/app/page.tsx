@@ -74,23 +74,22 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  const scrollCarousel = (direction: 'left' | 'right') => {
-    if (carouselRef.current) {
-      const container = carouselRef.current;
-      const cardWidth = container.firstElementChild?.clientWidth || container.clientWidth;
-      const gap = 16; // gap-4 is 1rem = 16px
-      const scrollAmount = cardWidth + gap;
-
-      container.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth'
-      });
+  useEffect(() => {
+    // Check if user has already seen the loader in this session
+    const hasSeenLoader = sessionStorage.getItem('hasSeenLoader');
+    if (hasSeenLoader) {
+      setLoading(false);
     }
+  }, []);
+
+  const handleLoaderFinish = () => {
+    sessionStorage.setItem('hasSeenLoader', 'true');
+    setLoading(false);
   };
 
   return (
     <div className="min-h-screen gradient-bg">
-      {loading && <Loader onFinish={() => setLoading(false)} />}
+      {loading && <Loader onFinish={handleLoaderFinish} />}
       {!loading && <Navbar />}
 
       {/* Hero Section */}
@@ -160,14 +159,14 @@ export default function Home() {
               className="text-3xl lg:text-[56px] font-bold leading-[1.1] mb-6 tracking-tighter text-black"
               style={{ fontFamily: 'var(--font-space-grotesk)' }}
             >
-              Get Banger Ads<br />
-              That Scale Your Brand
+              Scale Your Brand With<br />
+              Banger Ads Made for<br />
+              Meta Andromeda
             </h1>
 
             <p className="text-[18px] text-black mb-8 leading-relaxed font-medium">
-              Get high-performing ads that slash your CPA in half.<br />
-              Forget about Boring UGC testimonials.<br />
-              Get Ads that actually work in 2025.
+              Real + AI Creatives that slash your CAC in half.<br />
+              No more boring UGC, just ads that actually work in 2026.
             </p>
 
             <div className="flex gap-3 items-center w-full lg:w-auto">
@@ -178,12 +177,13 @@ export default function Home() {
               >
                 BOOK A CALL
               </a>
-              <button
-                className="flex-1 lg:flex-none px-4 py-3 md:px-8 md:py-4 text-xs md:text-[15px] font-semibold border-2 border-black bg-white hover:bg-black hover:text-white transition-all shadow-[4px_4px_0px_0px_#000000] text-center whitespace-nowrap"
+              <a
+                href="#work"
+                className="btn-our-work flex-1 lg:flex-none px-4 py-3 md:px-8 md:py-4 text-xs md:text-[15px] font-semibold border-2 border-black transition-colors shadow-[4px_4px_0px_0px_#000000] text-center whitespace-nowrap flex items-center justify-center"
                 style={{ borderRadius: '10px' }}
               >
-                CASE STUDIES
-              </button>
+                OUR WORK
+              </a>
             </div>
 
             {/* Mobile-Only Hero Video Marquee */}
@@ -218,14 +218,14 @@ export default function Home() {
       {/* Hero Border */}
       < div className="w-full border-t border-black" ></div >
 
-      {/* Trusted By Section */}
-      < TrustedByLogos />
-
       {/* Stealth Creatives Section */}
       < StealthCreatives />
 
+      {/* Trusted By Section */}
+      < TrustedByLogos />
+
       {/* Video Showcase Grid */}
-      <section className="py-8 lg:py-16 px-4 md:px-8 relative">
+      <section id="work" className="py-8 lg:py-16 px-4 md:px-8 relative">
         <div className="max-w-[1400px] mx-auto relative">
           <div className="relative">
             <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
@@ -234,6 +234,7 @@ export default function Home() {
                   <VideoCard
                     videoSrc={video}
                     aspectRatio="portrait"
+                    tag={index % 2 === 0 ? "Real" : "AI"}
                   />
                 </div>
               ))}
@@ -339,32 +340,25 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 lg:gap-16 w-full lg:w-auto">
-              <div>
-                <h4 className="font-bold mb-4">Services</h4>
-                <ul className="space-y-2 text-gray-600">
-                  <li><a href="#" className="hover:text-black transition-colors">Ad Creatives</a></li>
-                  <li><a href="#" className="hover:text-black transition-colors">Paid Advertising</a></li>
-                  <li><a href="#" className="hover:text-black transition-colors">Strategy</a></li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="font-bold mb-4">Company</h4>
-                <ul className="space-y-2 text-gray-600">
-                  <li><a href="#" className="hover:text-black transition-colors">About</a></li>
-                  <li><a href="#" className="hover:text-black transition-colors">Case Studies</a></li>
-                  <li><a href="#" className="hover:text-black transition-colors">Contact</a></li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="font-bold mb-4">Legal</h4>
-                <ul className="space-y-2 text-gray-600">
-                  <li><a href="#" className="hover:text-black transition-colors">Privacy Policy</a></li>
-                  <li><a href="#" className="hover:text-black transition-colors">Terms of Service</a></li>
-                </ul>
-              </div>
+            <div className="w-full lg:w-auto flex flex-col items-start lg:items-end">
+              <h4 className="font-bold mb-4 text-lg">Subscribe to our newsletter</h4>
+              <p className="text-gray-600 mb-4 text-sm w-full lg:text-right whitespace-nowrap">
+                Get creative and AI insights delivered to your inbox.
+              </p>
+              <form className="flex w-full max-w-sm items-center gap-2">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="flex-1 px-4 py-3 rounded-lg border-2 border-black focus:outline-none focus:ring-0 text-sm"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="px-6 py-3 font-bold text-sm uppercase border-2 border-black shadow-[3px_3px_0px_0px_#000000] transition-all hover:-translate-x-px hover:-translate-y-px hover:shadow-[4px_4px_0px_0px_#000000] bg-[#3EFFC1] text-black rounded-lg whitespace-nowrap"
+                >
+                  Subscribe
+                </button>
+              </form>
             </div>
           </div>
 

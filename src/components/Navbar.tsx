@@ -2,9 +2,14 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isHome = pathname === '/';
+  const isStudio = pathname === '/studio';
 
   return (
     <div className="fixed w-full z-50 transition-all duration-300 top-6 px-4">
@@ -37,18 +42,19 @@ export default function Navbar() {
             >
               <Link
                 href="/"
-                aria-current="page"
-                className="navbar_link w-nav-link w--current px-6 py-2.5 bg-white shadow-sm transition-all text-sm font-bold text-black border border-black"
+                aria-current={isHome ? "page" : undefined}
+                className={`navbar_link w-nav-link px-6 py-2.5 transition-all text-sm font-bold border ${isHome ? 'bg-white shadow-sm text-black border-black' : 'text-gray-600 border-transparent hover:bg-white/50'}`}
                 style={{ borderRadius: '8px' }}
               >
                 Ad Creatives
               </Link>
               <Link
-                href="/gen-ai"
-                className="navbar_link w-nav-link px-6 py-2.5 hover:bg-white/50 transition-all text-sm font-bold text-gray-600"
+                href="/studio"
+                aria-current={isStudio ? "page" : undefined}
+                className={`navbar_link w-nav-link px-6 py-2.5 transition-all text-sm font-bold border ${isStudio ? 'bg-white shadow-sm text-black border-black' : 'text-gray-600 border-transparent hover:bg-white/50'}`}
                 style={{ borderRadius: '8px' }}
               >
-                Gen AI
+                Studio
               </Link>
             </div>
 
@@ -94,8 +100,8 @@ export default function Navbar() {
             <Link href="/" className="block px-4 py-3 font-bold text-black bg-gray-100 border border-black" style={{ borderRadius: '8px' }}>
               Ad Creatives
             </Link>
-            <Link href="/gen-ai" className="block px-4 py-3 font-bold text-gray-600 hover:bg-gray-50" style={{ borderRadius: '8px' }}>
-              Gen AI
+            <Link href="/studio" className="block px-4 py-3 font-bold text-gray-600 hover:bg-gray-50" style={{ borderRadius: '8px' }}>
+              Studio
             </Link>
             <a
               href="#book"

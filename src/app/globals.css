@@ -80,11 +80,11 @@ body {
 }
 
 .animate-marquee-logos {
-  animation: marquee-left 16s linear infinite;
+  animation: marquee-left 10s linear infinite;
 }
 
 .animate-marquee-logos-reverse {
-  animation: marquee-right 16s linear infinite;
+  animation: marquee-right 10s linear infinite;
 }
 
 @keyframes scroll-right {
@@ -127,7 +127,7 @@ body {
 
 @media (min-width: 1024px) {
   .animate-marquee-logos {
-    animation: marquee-left 30s linear infinite;
+    animation: marquee-left 15s linear infinite;
   }
 }
 
@@ -645,4 +645,15 @@ a {
 .btn-yellow:active {
   transform: translate(2px, 2px);
   box-shadow: 0px 0px 0px 0px #000000;
+}
+
+/* Fix for OUR WORK button hover state */
+.btn-our-work {
+  color: black !important;
+  background-color: white !important;
+}
+
+.btn-our-work:hover {
+  color: white !important;
+  background-color: black !important;
 }
