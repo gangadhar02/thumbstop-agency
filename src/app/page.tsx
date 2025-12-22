@@ -15,14 +15,33 @@ import FAQ from '@/components/FAQ';
 
 // Hero section video URLs
 const heroVideos = [
-  "https://cdn.prod.website-files.com/654e54c75aa7a298c1d1d97b/672e234e20209833fa25f5c8_web%20nov%202%20short-transcode.mp4",
-  "https://cdn.prod.website-files.com/654e54c75aa7a298c1d1d97b/67b7243a7a0ca6625a2b3bb5_feb%20web%20street-transcode.mp4",
-  "https://cdn.prod.website-files.com/654e54c75aa7a298c1d1d97b/6731fc3cc0041a5c35211f6f_web%20nov%201%20short-transcode.mp4",
-  "https://cdn.prod.website-files.com/654e54c75aa7a298c1d1d97b/67f911784ee5b70668ea6ee7_April%20Web%20Street-transcode.mp4",
-  "https://cdn.prod.website-files.com/654e54c75aa7a298c1d1d97b/672e264a167c7151c6046822_web%20nov%203%20short-transcode.mp4",
-  "https://cdn.prod.website-files.com/654e54c75aa7a298c1d1d97b/67f917c0072513534f7bd86c_Web%20Feb%20Evsl%201%20%281%29-transcode.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/9x16%20(1)_720p_10s.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Voxpop-Poolside-9_16%20(1)_720p_10s.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/9x16_720p_10s.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Australia-9_16_720p_10s.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/LinkedIn%209x16_720p_10s.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Voxpop-Beachside-9_16%20(1)_720p_10s.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/MM%20Outskill%20talking%20head%20_Vertical_720p_10s.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Nomad-Podcast-9-16%20(1)_720p_10s.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Script%2003%20(9_16)%20-%20B2B_720p_10s.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/StreetStyle-Nomad-9-16%20(2)_720p_10s.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Video%204%20new_720p_10s.mp4",
 ];
 
+// Showcase section video URLs (full versions)
+const showcaseVideos = [
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/9x16%20(1)_720p.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Voxpop-Poolside-9_16%20(1)_720p.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/9x16_720p.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Australia-9_16_720p.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/LinkedIn%209x16_720p.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Voxpop-Beachside-9_16%20(1)_720p.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/MM%20Outskill%20talking%20head%20_Vertical_720p.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Nomad-Podcast-9-16%20(1)_720p.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Script%2003%20(9_16)%20-%20B2B_720p.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/StreetStyle-Nomad-9-16%20(2)_720p.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Video%204%20new_720p.mp4",
+];
 
 
 const caseStudies = [
@@ -209,7 +228,7 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto relative">
           <div className="relative">
             <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-              {[...heroVideos, ...heroVideos].slice(0, 8).map((video, index) => (
+              {[...showcaseVideos, ...showcaseVideos].slice(0, 8).map((video, index) => (
                 <div key={`showcase-${index}`}>
                   <VideoCard
                     videoSrc={video}
@@ -240,12 +259,12 @@ export default function Home() {
         </div>
       </section >
 
-      {/* Case Studies Section */}
+      {/* Case Studies Section - Hidden for now */}
+      {/*
       <section className="py-8 lg:py-16 px-0 md:px-8 relative">
         <h2 className="text-3xl lg:text-5xl font-bold text-center mb-8 lg:mb-16 text-black px-4" style={{ fontFamily: 'var(--font-space-grotesk)' }}>Latest Case Studies</h2>
 
         <div className="relative max-w-[1400px] mx-auto">
-          {/* Native Scroll Carousel */}
           <div
             ref={carouselRef}
             className="flex overflow-x-auto lg:overflow-hidden snap-x snap-mandatory gap-4 px-4 md:px-0 pb-8 scrollbar-hide"
@@ -258,11 +277,7 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Carousel Navigation */}
           <div className="flex justify-between items-center px-4 md:px-0">
-
-
-            {/* Arrows */}
             <div className="flex gap-4 w-full justify-end">
               <button
                 onClick={() => scrollCarousel('left')}
@@ -286,6 +301,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Thumbstop Method Section */}
       < ThumbstopMethod />

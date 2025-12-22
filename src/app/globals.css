@@ -65,6 +65,58 @@ body {
   animation: scroll-left 20s linear infinite;
 }
 
+.animate-marquee-logos {
+  animation: marquee-left 16s linear infinite;
+}
+
+.animate-marquee-logos-reverse {
+  animation: marquee-right 16s linear infinite;
+}
+
+@keyframes scroll-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-25%);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-25%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-testimonials {
+  animation: scroll-left 40s linear infinite;
+}
+
+.pause-on-hover:hover {
+  animation-play-state: paused;
+}
+
+@media (min-width: 1024px) {
+  .animate-marquee-logos {
+    animation: marquee-left 30s linear infinite;
+  }
+}
+
 /* Ultra Gradient Shapes */
 .shape-1 {
   position: absolute;
