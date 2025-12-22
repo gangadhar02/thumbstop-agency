@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import VideoCard from '@/components/VideoCard';
 import TrustedByLogos from '@/components/TrustedByLogos';
@@ -11,6 +11,7 @@ import ThumbstopMethod from '@/components/ThumbstopMethod';
 import Testimonials from '@/components/Testimonials';
 import BookACall from '@/components/BookACall';
 import FAQ from '@/components/FAQ';
+import Loader from '@/components/Loader';
 
 
 // Hero section video URLs
@@ -70,6 +71,7 @@ const caseStudies = [
 ];
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const scrollCarousel = (direction: 'left' | 'right') => {
@@ -88,7 +90,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen gradient-bg">
-      <Navbar />
+      {loading && <Loader onFinish={() => setLoading(false)} />}
+      {!loading && <Navbar />}
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-8 lg:pt-0 lg:pb-16 px-6 lg:px-16 min-h-screen overflow-hidden flex flex-col lg:flex-row items-center">
