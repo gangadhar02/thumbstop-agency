@@ -14,18 +14,19 @@ import FAQ from '@/components/FAQ';
 
 
 // Hero section video URLs
+// Hero section video URLs
 const heroVideos = [
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/9x16%20(1)_720p_10s.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Voxpop-Poolside-9_16%20(1)_720p_10s.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/9x16_720p_10s.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Australia-9_16_720p_10s.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/LinkedIn%209x16_720p_10s.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Voxpop-Beachside-9_16%20(1)_720p_10s.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/MM%20Outskill%20talking%20head%20_Vertical_720p_10s.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Nomad-Podcast-9-16%20(1)_720p_10s.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Script%2003%20(9_16)%20-%20B2B_720p_10s.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/StreetStyle-Nomad-9-16%20(2)_720p_10s.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Video%204%20new_720p_10s.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/9x16%20(1)_720p_10s_540w.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Voxpop-Poolside-9_16%20(1)_720p_10s_540w.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/9x16_720p_10s_540w.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Australia-9_16_720p_10s_540w.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/LinkedIn%209x16_720p_10s_540w.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Voxpop-Beachside-9_16%20(1)_720p_10s_540w.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/MM%20Outskill%20talking%20head%20_Vertical_720p_10s_540w.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Nomad-Podcast-9-16%20(1)_720p_10s_540w.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Script%2003%20(9_16)%20-%20B2B_720p_10s_540w.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/StreetStyle-Nomad-9-16%20(2)_720p_10s_540w.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Video%204%20new_720p_10s_540w.mp4",
 ];
 
 // Showcase section video URLs (full versions)
