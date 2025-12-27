@@ -1,65 +1,62 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { Search } from '@/components/animate-ui/icons/search';
+import { Lightbulb } from '@/components/animate-ui/icons/lightbulb';
+import { Clapperboard } from '@/components/animate-ui/icons/clapperboard';
+import { ChartColumnIncreasing } from '@/components/animate-ui/icons/chart-column-increasing';
+import { ChartLine } from '@/components/animate-ui/icons/chart-line';
 
 const methodSteps = [
     {
-        icon: (
-            <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <circle cx="12" cy="12" r="3" />
-                <path d="M12 3v3M12 18v3M3 12h3M18 12h3" />
-            </svg>
-        ),
-        title: 'Initial In-depth Research',
-        description: 'We dissect every facet of your customer base and market space, creating a set of archetypes, personas, and avatars that ensure that our future creatives resonate deeply and drive brand growth.'
+        iconType: 'search',
+        title: 'Initial In Depth Research',
+        description: 'We dissect every facet of your customer base and market landscape, building clear archetypes, personas, and messaging angles. This foundation ensures every AI generated creative resonates deeply and is rooted in proven conversion principles.'
     },
     {
-        icon: (
-            <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4z" />
-                <circle cx="17" cy="17" r="3" />
-                <path d="M17 14v6M14 17h6" />
-            </svg>
-        ),
+        iconType: 'lightbulb',
         title: 'Creative Strategy',
-        description: 'We conceptualize creatives that are not just visually appealing, but strategically poised to sell. Using a mix of data and psychology, we develop concepts that motivate viewers to take action.'
+        description: 'AI is the tool, not the strategy. With 4+ years of experience scaling brands on paid and organic channels, we design concepts based on what actually drives attention, clicks, and conversions. Every idea is grounded in human psychology, platform dynamics, and performance data.'
     },
     {
-        icon: (
-            <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <rect x="2" y="4" width="20" height="16" rx="2" />
-                <circle cx="12" cy="12" r="3" />
-                <path d="M2 8h20" />
-            </svg>
-        ),
-        title: 'Real + AI Creative Methodology',
-        description: "We use AI to rapidly test concepts and find what resonates—then double down on winners with full production. This test-first approach cuts your ad production costs by 50-60% while ensuring you only invest in creatives that actually perform."
-    },
-
-    {
-        icon: (
-            <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M3 3v18h18" />
-                <path d="M7 14l4-4 4 4 5-5" />
-                <circle cx="20" cy="9" r="2" />
-            </svg>
-        ),
-        title: 'Analysis & Iterations',
-        description: "Our creative strategist analyzes each ad using custom metrics to see what worked and what didn't. Based on the analysis, new briefs for iterations and new batches of creatives are prepared for testing."
+        iconType: 'clapperboard',
+        title: 'AI Creative Production Methodology',
+        description: "We use AI to rapidly produce, test, and iterate high volume creative variations at a fraction of traditional costs. This AI first approach allows us to explore more angles, formats, and hooks while maintaining quality and performance. You get faster learning cycles, lower production spend, and ads built to scale."
     },
     {
-        icon: (
-            <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                <path d="M2 17l10 5 10-5" />
-                <path d="M2 12l10 5 10-5" />
-            </svg>
-        ),
+        iconType: 'chartColumn',
+        title: 'Analysis & Iteration',
+        description: "Each creative is analyzed using performance metrics that matter. Winning patterns are identified, refined, and redeployed into new AI generated iterations, ensuring constant improvement without creative fatigue."
+    },
+    {
+        iconType: 'chartLine',
         title: 'Scale',
-        description: "By focusing on results, analyzing data, and optimizing for high conversions, we consistently find creatives that are ready to scale. You can relax and focus on your business while we do all the work."
+        description: "Once winning concepts are identified, we scale using AI generated creatives optimized for efficiency and consistency. You benefit from lower costs, faster execution, and a system designed to grow with your ad spend while we handle the creative engine."
     }
 ];
+
+const IconComponent = ({ iconType, isActive }: { iconType: string; isActive: boolean }) => {
+    const iconProps = {
+        size: 28,
+        className: "text-black",
+        animate: isActive as boolean,
+    };
+
+    switch (iconType) {
+        case 'search':
+            return <Search {...iconProps} />;
+        case 'lightbulb':
+            return <Lightbulb {...iconProps} />;
+        case 'clapperboard':
+            return <Clapperboard {...iconProps} />;
+        case 'chartColumn':
+            return <ChartColumnIncreasing {...iconProps} />;
+        case 'chartLine':
+            return <ChartLine {...iconProps} />;
+        default:
+            return null;
+    }
+};
 
 export default function ThumbstopMethod() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -160,7 +157,7 @@ export default function ThumbstopMethod() {
                                                 }`}
                                             style={{ backgroundColor: isActive ? '#3EFFC1' : '#e5e7eb' }}
                                         >
-                                            {step.icon}
+                                            <IconComponent iconType={step.iconType} isActive={isActive} />
                                         </div>
 
                                         {/* Content */}

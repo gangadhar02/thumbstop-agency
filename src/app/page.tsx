@@ -17,29 +17,30 @@ import Loader from '@/components/Loader';
 // Hero section video URLs
 // Hero section video URLs
 const heroVideos = [
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/9x16%20(1)_720p_10s_540w.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Baby-Promo_under1mb.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/podcast_indoor_female_young_whiteblack_ai_stat_denied%244018_8s_540w.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Thailand-%2437K-Promo_under1mb.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/podcast_studio_male_young_white_ai_shock_nowayfourgrand_8s_540w.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/spokesperson_outdoor_male_old_white_ai_stat_unemployedover50santa_8s_540w.mp4",
+  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/spokesperson_store_female_old_white_ai_stat_peopleover50_8s_540w.mp4",
   "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Voxpop-Poolside-9_16%20(1)_720p_10s_540w.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/9x16_720p_10s_540w.mp4",
   "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Australia-9_16_720p_10s_540w.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/LinkedIn%209x16_720p_10s_540w.mp4",
   "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Voxpop-Beachside-9_16%20(1)_720p_10s_540w.mp4",
   "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/MM%20Outskill%20talking%20head%20_Vertical_720p_10s_540w.mp4",
   "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Nomad-Podcast-9-16%20(1)_720p_10s_540w.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Script%2003%20(9_16)%20-%20B2B_720p_10s_540w.mp4",
   "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/StreetStyle-Nomad-9-16%20(2)_720p_10s_540w.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Video%204%20new_720p_10s_540w.mp4",
 ];
 
 // Showcase section video URLs (full versions)
 const showcaseVideos = [
-  "https://player.vimeo.com/video/1148660389?api=1&controls=0&title=0&byline=0&portrait=0",
   "https://player.vimeo.com/video/1148660918?api=1&controls=0&title=0&byline=0&portrait=0",
-  "https://player.vimeo.com/video/1148660430?api=1&controls=0&title=0&byline=0&portrait=0",
-  "https://player.vimeo.com/video/1148660491?api=1&controls=0&title=0&byline=0&portrait=0",
-  "https://player.vimeo.com/video/1148660564?api=1&controls=0&title=0&byline=0&portrait=0",
+  "https://player.vimeo.com/video/1149653449?api=1&controls=0&title=0&byline=0&portrait=0",
+  "https://player.vimeo.com/video/1149654849?api=1&controls=0&title=0&byline=0&portrait=0",
   "https://player.vimeo.com/video/1148660874?api=1&controls=0&title=0&byline=0&portrait=0",
   "https://player.vimeo.com/video/1148660610?api=1&controls=0&title=0&byline=0&portrait=0",
   "https://player.vimeo.com/video/1148660642?api=1&controls=0&title=0&byline=0&portrait=0",
+  "https://player.vimeo.com/video/1149653493?api=1&controls=0&title=0&byline=0&portrait=0",
+  "https://player.vimeo.com/video/1148660491?api=1&controls=0&title=0&byline=0&portrait=0",
 ];
 
 
@@ -102,7 +103,7 @@ export default function Home() {
             style={{ transform: 'translate3d(0px, -10%, 0px)' }}
           >
             <div className="space-y-4 animate-scroll-down">
-              {[...heroVideos.slice(0, 3), ...heroVideos.slice(0, 3)].map((video, index) => (
+              {[...heroVideos.slice(0, 6), ...heroVideos.slice(0, 6)].map((video, index) => (
                 <div key={`left-${index}`} className="w-full relative aspect-[9/16] rounded-2xl overflow-hidden shadow-lg">
                   <video
                     src={video}
@@ -123,7 +124,7 @@ export default function Home() {
             style={{ transform: 'translate3d(0px, -5%, 0px)' }}
           >
             <div className="space-y-4 animate-scroll-up">
-              {[...heroVideos.slice(3, 6), ...heroVideos.slice(3, 6)].map((video, index) => (
+              {[...heroVideos.slice(6, 12), ...heroVideos.slice(6, 12)].map((video, index) => (
                 <div key={`right-${index}`} className="w-full relative aspect-[9/16] rounded-2xl overflow-hidden shadow-lg">
                   <video
                     src={video}
@@ -160,13 +161,13 @@ export default function Home() {
               style={{ fontFamily: 'var(--font-space-grotesk)' }}
             >
               Scale Your Brand With<br />
-              Banger Ads Made for<br />
+              AI Powered Ads Built for<br />
               Meta Andromeda
             </h1>
 
             <p className="text-[18px] text-black mb-8 leading-relaxed font-medium">
-              Real + AI Creatives that slash your CAC in half.<br />
-              No more boring UGC, just ads that actually work in 2026.
+              AI driven creatives that cut CAC and production costs without sacrificing performance.<br />
+              Grow faster with high quality ads that actually convert in 2026.
             </p>
 
             <div className="flex gap-3 items-center w-full lg:w-auto">
@@ -234,7 +235,6 @@ export default function Home() {
                   <VideoCard
                     videoSrc={video}
                     aspectRatio="portrait"
-                    tag={index % 2 === 0 ? "Real" : "AI"}
                   />
                 </div>
               ))}
@@ -251,12 +251,13 @@ export default function Home() {
 
           {/* Watch All Videos Button */}
           <div className="flex justify-center mt-4 relative z-20">
-            <button
+            <a
+              href="/videos"
               className="px-8 py-4 font-bold text-base uppercase border-2 border-black shadow-[4px_4px_0px_0px_#000000] transition-all hover:-translate-x-px hover:-translate-y-px hover:shadow-[5px_5px_0px_0px_#000000]"
               style={{ backgroundColor: '#3EFFC1', color: '#000000', borderRadius: '10px' }}
             >
               WATCH ALL VIDEOS
-            </button>
+            </a>
           </div>
         </div>
       </section >

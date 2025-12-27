@@ -13,15 +13,15 @@ export default function StealthCreatives() {
                     </div>
 
                     <h2 className="text-3xl lg:text-5xl font-bold mb-8 text-[#E91E8C] whitespace-nowrap" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                        Why Creative Is Essential ?
+                        Why AI Creatives Are Essential
                     </h2>
 
                     <div className="space-y-6 text-base lg:text-lg text-black font-medium leading-relaxed mb-10">
                         <p>
-                            In 2026, ad creative is your biggest lever on paid social. As costs rise and competition intensifies, high-performance creative is the difference between scaling and stalling your growth.
+                            In 2026, creative is no longer just an advantage. It is the growth engine on paid social. As CPMs rise and attention drops, AI powered creatives give you the speed, volume, and variation needed to scale without burning budget.
                         </p>
                         <p>
-                            Stealth creatives look like the content your customers already watch. Podcast clips, street interviews, funny skits, native formats that feel organic and varied. Exactly what Andromeda loves to spend on.
+                            We can create podcast clips, street interviews, reactive moments, and native short form formats that feel organic, diverse, and endlessly fresh using AI. Exactly the kind of creative Andromeda is built to push.
                         </p>
                     </div>
 
