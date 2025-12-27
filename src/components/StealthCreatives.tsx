@@ -12,8 +12,8 @@ export default function StealthCreatives() {
                         </svg>
                     </div>
 
-                    <h2 className="text-3xl lg:text-5xl font-bold mb-8 text-[#E91E8C] whitespace-nowrap" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                        Why AI Creatives Are Essential
+                    <h2 className="text-3xl lg:text-5xl font-bold mb-8 text-[#E91E8C] lg:whitespace-nowrap" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                        Why AI Creatives<br className="lg:hidden" /> Are Essential
                     </h2>
 
                     <div className="space-y-6 text-base lg:text-lg text-black font-medium leading-relaxed mb-10">
