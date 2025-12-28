@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
@@ -26,11 +27,13 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/" aria-current="page" className="navbar_logo-link w-nav-brand w--current shrink-0" aria-label="home">
-            <img
+            <Image
               src="/logos/thumbstop.png"
-              loading="lazy"
               alt="Thumbstop logo"
+              width={103}
+              height={24}
               className="navbar_logo h-6 w-auto"
+              priority
             />
           </Link>
 

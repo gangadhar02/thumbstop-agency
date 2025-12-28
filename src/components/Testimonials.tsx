@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 const testimonials = [
     {
         quote: "Most people wait for a brief. Gangadhar comes back with insights we hadn't even considered. His strategic thinking elevates the work before production even starts. We've seen a measurable lift in engagement, and the creative direction is always spot on.",
@@ -76,9 +78,11 @@ export default function Testimonials() {
                             {testimonial.logo ? (
                                 <div className="mb-6 w-full">
                                     <div className="mb-3 h-10 flex items-center">
-                                        <img
+                                        <Image
                                             src={testimonial.logo}
                                             alt={`${testimonial.clientName} company logo`}
+                                            width={120}
+                                            height={40}
                                             className="h-full w-auto object-contain"
                                             loading="lazy"
                                         />
@@ -103,11 +107,13 @@ export default function Testimonials() {
 
                             {/* Client Info */}
                             <div className="flex items-center gap-4 mt-auto">
-                                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-100 flex-shrink-0">
+                                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-100 shrink-0">
                                     {testimonial.clientImage ? (
-                                        <img
+                                        <Image
                                             src={testimonial.clientImage}
                                             alt={testimonial.clientName}
+                                            width={48}
+                                            height={48}
                                             className="w-full h-full object-cover"
                                             loading="lazy"
                                         />
@@ -140,4 +146,3 @@ export default function Testimonials() {
         </section>
     );
 }
-

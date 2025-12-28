@@ -1,18 +1,19 @@
 'use client';
 
+import Image from 'next/image';
 import { cn } from "@/lib/utils";
 
 const logos = [
-  { src: '/logos/Acemath.png', alt: 'Acemath' },
-  { src: '/logos/GS.png', alt: 'GS' },
-  { src: '/logos/JustCallpng.png', alt: 'JustCall' },
-  { src: '/logos/Logo.png', alt: 'Logo' },
-  { src: '/logos/Spotify.png', alt: 'Spotify' },
-  { src: '/logos/dojo.png', alt: 'Dojo' },
-  { src: '/logos/jetpac.webp', alt: 'Jetpac' },
-  { src: '/logos/outskill.png', alt: 'Outskill' },
-  { src: '/logos/sivi.png', alt: 'Sivi' },
-  { src: '/logos/toi.png', alt: 'Times of India' },
+  { src: '/logos/Acemath.png', alt: 'Acemath', width: 110, height: 40 },
+  { src: '/logos/GS.png', alt: 'GS', width: 80, height: 40 },
+  { src: '/logos/JustCallpng.png', alt: 'JustCall', width: 146, height: 40 },
+  { src: '/logos/Logo.png', alt: 'Logo', width: 76, height: 40 },
+  { src: '/logos/Spotify.png', alt: 'Spotify', width: 81, height: 40 },
+  { src: '/logos/dojo.png', alt: 'Dojo', width: 85, height: 40 },
+  { src: '/logos/jetpac.webp', alt: 'Jetpac', width: 164, height: 40 },
+  { src: '/logos/outskill.png', alt: 'Outskill', width: 176, height: 40 },
+  { src: '/logos/sivi.png', alt: 'Sivi', width: 104, height: 40 },
+  { src: '/logos/toi.png', alt: 'Times of India', width: 92, height: 40 },
 ];
 
 export default function TrustedByLogos() {
@@ -38,7 +39,14 @@ export default function TrustedByLogos() {
           <div className="flex w-max animate-marquee-logos">
             {[...logos, ...logos, ...logos, ...logos].map((logo, index) => (
               <div key={`logo-${index}`} className="shrink-0 mx-6 lg:mx-12 flex items-center justify-center">
-                <img src={logo.src} alt={logo.alt} className="h-10 lg:h-14 w-auto object-contain" loading="lazy" />
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={logo.width}
+                  height={logo.height}
+                  className="h-10 lg:h-14 w-auto object-contain"
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
@@ -49,4 +57,3 @@ export default function TrustedByLogos() {
     </div>
   );
 }
-

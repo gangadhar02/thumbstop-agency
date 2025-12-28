@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 
 export default function StudioPage() {
@@ -84,9 +85,11 @@ export default function StudioPage() {
                 <div className="max-w-6xl mx-auto">
                     <div className="flex flex-col lg:flex-row justify-between items-start mb-12 gap-10 lg:gap-0">
                         <div className="w-full lg:w-auto">
-                            <img
+                            <Image
                                 src="/logos/thumbstop.png"
                                 alt="Thumbstop logo"
+                                width={137}
+                                height={32}
                                 className="h-8 w-auto mb-4"
                             />
                             <p className="text-gray-600 max-w-md mb-6">
