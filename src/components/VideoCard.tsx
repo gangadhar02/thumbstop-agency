@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 interface VideoCardProps {
   videoSrc: string;
@@ -18,9 +18,37 @@ export default function VideoCard({
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   // Check if source is a Vimeo URL
   const isVimeo = videoSrc.includes('vimeo.com');
+
+  // Lazy load with IntersectionObserver
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(container);
+          }
+        });
+      },
+      {
+        rootMargin: '200px', // Start loading before visible
+        threshold: 0.1,
+      }
+    );
+
+    observer.observe(container);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   const handlePlayClick = () => {
     if (!isLoaded) {
@@ -66,29 +94,38 @@ export default function VideoCard({
       className={`video-card relative rounded-2xl overflow-hidden cursor-pointer group ${aspectRatio === 'portrait' ? 'aspect-[9/16]' : 'aspect-square'
         }`}
     >
-      {/* Video Background */}
-      {isVimeo ? (
-        <iframe
-          ref={iframeRef}
-          src={videoSrc}
-          className="absolute inset-0 w-full h-full object-cover"
-          allow="autoplay; fullscreen; picture-in-picture"
-          frameBorder="0"
-          title="Vimeo Video"
-        />
-      ) : (
-        <video
-          ref={videoRef}
-          src={videoSrc}
-          loop
-          playsInline
-          preload="metadata"
-          onEnded={handleVideoEnded}
-          className="object-cover w-full h-full"
-        />
+      {/* Placeholder before loading */}
+      {!isVisible && (
+        <div className="absolute inset-0 bg-gray-200 animate-pulse" />
       )}
 
-      {/* Gradient Overlay - hidden when playing */}
+      {/* Video Background - Only load when visible */}
+      {isVisible && (
+        <>
+          {isVimeo ? (
+            <iframe
+              ref={iframeRef}
+              src={videoSrc}
+              className="absolute inset-0 w-full h-full object-cover"
+              allow="autoplay; fullscreen; picture-in-picture"
+              frameBorder="0"
+              title="Vimeo Video"
+              loading="lazy"
+            />
+          ) : (
+            <video
+              ref={videoRef}
+              src={videoSrc}
+              loop
+              playsInline
+              preload="metadata"
+              onEnded={handleVideoEnded}
+              className="object-cover w-full h-full"
+            />
+          )}
+        </>
+      )}
+
       {/* Gradient Overlay - hidden when playing */}
       {!isPlaying && (
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />

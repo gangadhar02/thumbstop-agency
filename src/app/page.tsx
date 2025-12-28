@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar';
 import VideoCard from '@/components/VideoCard';
 import TrustedByLogos from '@/components/TrustedByLogos';
 import StealthCreatives from '@/components/StealthCreatives';
-
+import LazyVideo from '@/components/LazyVideo';
 import CaseStudyCard from '@/components/CaseStudyCard';
 import ThumbstopMethod from '@/components/ThumbstopMethod';
 import Testimonials from '@/components/Testimonials';
@@ -13,20 +13,13 @@ import BookACall from '@/components/BookACall';
 import FAQ from '@/components/FAQ';
 
 
-// Hero section video URLs
-// Hero section video URLs
+// Hero section video URLs - Reduced to 6 for performance
 const heroVideos = [
   "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Baby-Promo_under1mb.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/podcast_indoor_female_young_whiteblack_ai_stat_denied%244018_8s_540w.mp4",
   "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Thailand-%2437K-Promo_under1mb.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/podcast_studio_male_young_white_ai_shock_nowayfourgrand_8s_540w.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/spokesperson_outdoor_male_old_white_ai_stat_unemployedover50santa_8s_540w.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/spokesperson_store_female_old_white_ai_stat_peopleover50_8s_540w.mp4",
   "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Voxpop-Poolside-9_16%20(1)_720p_10s_540w.mp4",
   "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Australia-9_16_720p_10s_540w.mp4",
   "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Voxpop-Beachside-9_16%20(1)_720p_10s_540w.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/MM%20Outskill%20talking%20head%20_Vertical_720p_10s_540w.mp4",
-  "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/Nomad-Podcast-9-16%20(1)_720p_10s_540w.mp4",
   "https://pub-0eb01a0190aa4eb588b4b11f19c469e8.r2.dev/StreetStyle-Nomad-9-16%20(2)_720p_10s_540w.mp4",
 ];
 
@@ -87,14 +80,10 @@ export default function Home() {
             style={{ transform: 'translate3d(0px, -10%, 0px)' }}
           >
             <div className="space-y-4 animate-scroll-down">
-              {[...heroVideos.slice(0, 6), ...heroVideos.slice(0, 6)].map((video, index) => (
+              {[...heroVideos.slice(0, 3), ...heroVideos.slice(0, 3)].map((video, index) => (
                 <div key={`left-${index}`} className="w-full relative aspect-[9/16] rounded-2xl overflow-hidden shadow-lg">
-                  <video
+                  <LazyVideo
                     src={video}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
                     className="object-cover w-full h-full"
                   />
                 </div>
@@ -108,14 +97,10 @@ export default function Home() {
             style={{ transform: 'translate3d(0px, -5%, 0px)' }}
           >
             <div className="space-y-4 animate-scroll-up">
-              {[...heroVideos.slice(6, 12), ...heroVideos.slice(6, 12)].map((video, index) => (
+              {[...heroVideos.slice(3, 6), ...heroVideos.slice(3, 6)].map((video, index) => (
                 <div key={`right-${index}`} className="w-full relative aspect-[9/16] rounded-2xl overflow-hidden shadow-lg">
-                  <video
+                  <LazyVideo
                     src={video}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
                     className="object-cover w-full h-full"
                   />
                 </div>
@@ -174,15 +159,11 @@ export default function Home() {
             {/* Mobile-Only Hero Video Marquee */}
             <div className="lg:hidden w-[calc(100%+3rem)] -mx-6 mt-10 overflow-hidden relative">
               <div className="flex gap-4 animate-scroll-left w-max">
-                {[...heroVideos, ...heroVideos].map((video, index) => (
+                {[...heroVideos.slice(0, 4), ...heroVideos.slice(0, 4)].map((video, index) => (
                   <div key={`mobile-marquee-${index}`} className="w-[180px] aspect-[9/16] rounded-2xl overflow-hidden shadow-lg flex-shrink-0 border-2 border-black relative">
                     <div className="absolute inset-0 bg-transparent z-10"></div> {/* Overlay to prevent interaction */}
-                    <video
+                    <LazyVideo
                       src={video}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
                       className="object-cover w-full h-full"
                     />
                   </div>

@@ -80,6 +80,7 @@ export default function Testimonials() {
                                             src={testimonial.logo}
                                             alt={`${testimonial.clientName} company logo`}
                                             className="h-full w-auto object-contain"
+                                            loading="lazy"
                                         />
                                     </div>
                                     {testimonial.category && (
@@ -108,6 +109,7 @@ export default function Testimonials() {
                                             src={testimonial.clientImage}
                                             alt={testimonial.clientName}
                                             className="w-full h-full object-cover"
+                                            loading="lazy"
                                         />
                                     ) : (
                                         <div className="w-full h-full bg-linear-to-br from-pink-400 to-purple-500 flex items-center justify-center">

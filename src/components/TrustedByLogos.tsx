@@ -38,7 +38,7 @@ export default function TrustedByLogos() {
           <div className="flex w-max animate-marquee-logos">
             {[...logos, ...logos, ...logos, ...logos].map((logo, index) => (
               <div key={`logo-${index}`} className="shrink-0 mx-6 lg:mx-12 flex items-center justify-center">
-                <img src={logo.src} alt={logo.alt} className="h-10 lg:h-14 w-auto object-contain" />
+                <img src={logo.src} alt={logo.alt} className="h-10 lg:h-14 w-auto object-contain" loading="lazy" />
               </div>
             ))}
           </div>
