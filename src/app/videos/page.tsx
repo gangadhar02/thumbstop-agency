@@ -16,6 +16,10 @@ const allVideos = [
     "https://player.vimeo.com/video/1149654905?api=1&controls=0&title=0&byline=0&portrait=0",
     "https://player.vimeo.com/video/1149654881?api=1&controls=0&title=0&byline=0&portrait=0",
     "https://player.vimeo.com/video/1149654860?api=1&controls=0&title=0&byline=0&portrait=0",
+    "https://player.vimeo.com/video/1154945747?api=1&controls=0&title=0&byline=0&portrait=0",
+    "https://player.vimeo.com/video/1154946200?api=1&controls=0&title=0&byline=0&portrait=0",
+    "https://player.vimeo.com/video/1154945943?api=1&controls=0&title=0&byline=0&portrait=0",
+    "https://player.vimeo.com/video/1154946332?api=1&controls=0&title=0&byline=0&portrait=0",
 ];
 
 export default function VideosPage() {

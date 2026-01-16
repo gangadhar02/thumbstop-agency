@@ -275,8 +275,8 @@ export default function Home() {
       {/* Thumbstop Method Section */}
       < ThumbstopMethod />
 
-      {/* Testimonials Section */}
-      < Testimonials />
+      {/* Testimonials Section - Hidden for now */}
+      {/* <Testimonials /> */}
 
       {/* Book A Call Section */}
       < BookACall />
